@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mis 15 Años Kiara</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  
+body{
+  margin:0;
+  font-family:Montserrat, sans-serif;
+  color:white;
+  text-align:center;
+  overflow-x:hidden;
+  background:url("fondo-pc.jpg") center top / cover no-repeat fixed;
+}
+
+@media (max-width:700px){
+  body{
+    background:url("fondo-cel.jpg") center top / cover no-repeat;
+  }
+}
+
+/* estrellas suaves */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.30) 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 20%, rgba(255,255,255,0.25) 0 2px, transparent 3px),
+    radial-gradient(circle at 40% 80%, rgba(255,255,255,0.25) 0 2px, transparent 3px),
+    radial-gradient(circle at 85% 60%, rgba(255,255,255,0.30) 0 2px, transparent 3px),
+    radial-gradient(circle at 10% 70%, rgba(255,255,255,0.25) 0 2px, transparent 3px);
+  animation:parpadeo 6s infinite alternate ease-in-out;
+  opacity:.25;
+  z-index:0;
+}
+
+@keyframes parpadeo{
+  0%{opacity:.12;}
+  100%{opacity:.25;}
+}
+
+/* bloques */
+.portada,
+.seccion{
+  position:relative;
+  z-index:1;
+  background:transparent;
+  padding:45px 20px;
+  max-width:900px;
+  margin:0 auto;
+  box-sizing:border-box;
+}
+
+.portada{
+  min-height:100svh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding-top:40px;
+  padding-bottom:25px;
+}
+
+/* textos */
+h1{
+  font-family:Great Vibes, cursive;
+  font-size:70px;
+  margin:10px 0;
+  text-shadow:0 0 18px rgba(255,255,255,0.45);
+}
+
+h2{
+  font-size:38px;
+  margin:10px 0 18px;
+  text-shadow:0 0 10px rgba(255,255,255,0.15);
+}
+
+p{
+  font-size:20px;
+  max-width:700px;
+  margin:10px auto;
+  line-height:1.6;
+}
+
+.glow{
+  text-shadow:
+    0 0 10px rgba(255,255,255,0.45),
+    0 0 25px rgba(255,255,255,0.25);
+}
+
+/* chica */
+.chica{
+  width:300px;
+  max-width:80%;
+  margin-top:12px;
+  margin-bottom:8px;
+  filter:drop-shadow(0 15px 35px rgba(0,0,0,0.45));
+  animation:flotar 4s ease-in-out infinite;
+}
+
+@keyframes flotar{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+}
+
+/* play */
+.play{
+  background:rgba(255,255,255,0.90);
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin:12px 0;
+  cursor:pointer;
+  box-shadow:
+    0 0 18px rgba(255,255,255,0.65),
+    0 0 35px rgba(0,255,200,0.25);
+  transition:.4s;
+}
+
+.play:after{
+  content:"▶";
+  font-size:26px;
+  color:#033;
+  margin-left:3px;
+}
+
+.play:hover{
+  transform:scale(1.1);
+}
+
+/* padres */
+.titulo-padres{
+  font-size:28px;
+  margin-bottom:18px;
+}
+
+.padres{
+  max-width:800px;
+  margin:auto;
+  text-align:center;
+}
+
+.nombre-padre{
+  font-family:"Great Vibes", cursive;
+  font-size:55px;
+  margin:4px 0;
+}
+
+.mensaje-padres{
+  margin-top:10px;
+  font-size:18px;
+  opacity:.95;
+}
+
+/* imágenes */
+.imagen-deco{
+  width:320px;
+  max-width:90%;
+  display:block;
+  margin:20px auto 15px auto;
+}
+
+.dress-img{
+  width:140px;
+  display:block;
+  margin:20px auto 10px auto;
+}
+
+.crono{
+  width:100%;
+  max-width:420px;
+  display:block;
+  margin:15px auto 0 auto;
+  border-radius:20px;
+}
+
+/* botones */
+.boton{
+  padding:15px 30px;
+  border:2px solid white;
+  display:inline-block;
+  margin-top:18px;
+  text-decoration:none;
+  color:white;
+  border-radius:20px;
+  font-weight:bold;
+  background:rgba(255,255,255,0.08);
+  transition:.3s;
+}
+
+.boton:hover{
+  transform:scale(1.05);
+  background:rgba(255,255,255,0.18);
+}
+
+/* contador */
+.contador-marco-wrap{
+  position:relative;
+  width:92%;
+  max-width:620px;
+  margin:20px auto 10px auto;
+}
+
+.marco-contador{
+  width:100%;
+  display:block;
+}
+
+.contador-superpuesto{
+  position:absolute;
+  top:48%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:76%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.bloque-num{
+  text-align:center;
+}
+
+.bloque-num span{
+  display:block;
+  font-family:'Cinzel', serif;
+  font-size:40px;
+  line-height:1;
+  text-shadow:0 0 8px rgba(255,255,255,0.35);
+}
+
+.bloque-num small{
+  display:block;
+  margin-top:6px;
+  font-size:12px;
+  letter-spacing:1px;
+}
+
+.separador{
+  font-size:28px;
+  opacity:.8;
+}
+
+/* texto largo */
+.texto-largo{
+  font-family:Great Vibes, cursive;
+  font-size:38px;
+  line-height:1.5;
+  max-width:700px;
+  margin:12px auto 20px auto;
+}
+
+.pase{
+  margin-top:16px;
+  font-size:24px;
+  font-weight:600;
+}
+
+/* responsive */
+@media (max-width:600px){
+  body{
+    background-position:85% top;
+    background-size:cover;
+  }
+
+  .portada,
+  .seccion{
+    padding:35px 15px;
+  }
+
+  .portada{
+    padding-top:30px;
+    padding-bottom:18px;
+    min-height:auto;
+  }
+
+  h1{font-size:44px;}
+  h2{font-size:24px;}
+  p{font-size:16px; line-height:1.45;}
+
+  .chica{
+    width:210px;
+    margin-top:8px;
+    margin-bottom:8px;
+  }
+
+  .play{
+    width:64px;
+    height:64px;
+    margin:10px 0;
+  }
+
+  .nombre-padre{font-size:42px;}
+  .titulo-padres{font-size:24px;}
+  .mensaje-padres{font-size:16px;}
+
+  .contador-marco-wrap{
+    max-width:360px;
+    margin:20px auto 0 auto;
+  }
+
+  .contador-superpuesto{
+    width:82%;
+    top:50%;
+  }
+
+  .bloque-num span{
+    font-size:24px;
+  }
+
+  .bloque-num small{
+    font-size:8px;
+    letter-spacing:.5px;
+  }
+
+  .separador{
+    font-size:18px;
+  }
+
+  .dress-img{
+    width:120px;
+    margin:15px auto 8px auto;
+  }
+
+  .crono{
+    max-width:320px;
+  }
+    
+
+  .texto-largo{
+    font-size:28px;
+    line-height:1.45;
+    max-width:95%;
+  }
+
+  .pase{
+    font-size:18px;
+  }
+
+
+@media (min-width:1100px){
+  body{
+    background-size:100% auto;
+    background-position:100% top;
+  }
+}
+/* ===== CAPAS MAGICAS ===== */
+.capa-estrellas,
+.capa-brillo,
+.capa-destellos{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  overflow:hidden;
+}
+
+/* ===== ENTRADA CINEMATOGRAFICA ===== */
+body{
+  animation:entradaCine 1.4s ease;
+}
+
+@keyframes entradaCine{
+  0%{
+    opacity:0;
+    transform:scale(1.02);
+    filter:blur(8px);
+  }
+  100%{
+    opacity:1;
+    transform:scale(1);
+    filter:blur(0);
+  }
+}
+
+/* ===== ESTRELLAS CAYENDO ===== */
+.estrella-cayendo{
+  position:absolute;
+  top:-120px;
+  width:2px;
+  height:110px;
+  background:linear-gradient(to bottom, rgba(255,255,255,0.95), rgba(255,255,255,0));
+  opacity:.85;
+  transform:rotate(28deg);
+  filter:drop-shadow(0 0 8px rgba(255,255,255,0.95));
+  animation:caerEstrella linear forwards;
+}
+
+@keyframes caerEstrella{
+  0%{
+    transform:translateY(-120px) translateX(0) rotate(28deg);
+    opacity:0;
+  }
+  10%{
+    opacity:.95;
+  }
+  100%{
+    transform:translateY(120vh) translateX(160px) rotate(28deg);
+    opacity:0;
+  }
+}
+
+/* ===== BRILLO MAGICO ===== */
+.capa-brillo::before,
+.capa-brillo::after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+  filter:blur(90px);
+  opacity:.18;
+  animation:flotarGlow 8s ease-in-out infinite alternate;
+}
+
+.capa-brillo::before{
+  width:460px;
+  height:460px;
+  top:8%;
+  left:-10%;
+  background:radial-gradient(circle, rgba(255,255,255,0.22), rgba(255,255,255,0));
+}
+
+.capa-brillo::after{
+  width:420px;
+  height:420px;
+  right:-8%;
+  bottom:8%;
+  background:radial-gradient(circle, rgba(120,255,230,0.18), rgba(120,255,230,0));
+}
+
+@keyframes flotarGlow{
+  0%{
+    transform:translateY(0) translateX(0) scale(1);
+  }
+  100%{
+    transform:translateY(-22px) translateX(18px) scale(1.08);
+  }
+}
+
+/* ===== DESTELLOS MAGICOS ===== */
+.destello-magico{
+  position:absolute;
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.88);
+  box-shadow:
+    0 0 12px rgba(255,255,255,0.95),
+    0 0 24px rgba(255,255,255,0.45);
+  animation:latirDestello 3s ease-in-out infinite;
+}
+
+@keyframes latirDestello{
+  0%,100%{
+    transform:scale(0.7);
+    opacity:.25;
+  }
+  50%{
+    transform:scale(1.25);
+    opacity:1;
+  }
+}
+
+/* ===== CONTENIDO POR ENCIMA ===== */
+.portada,
+.seccion{
+  z-index:2;
+}
+
+/* ===== REVEAL AL HACER SCROLL ===== */
+.reveal{
+  opacity:0;
+  transform:translateY(35px);
+  transition:opacity .9s ease, transform .9s ease;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ===== BRILLO SUAVE EN TITULOS ===== */
+h1, h2{
+  animation:resplandorTitulo 4s ease-in-out infinite alternate;
+}
+
+@keyframes resplandorTitulo{
+  0%{
+    text-shadow:
+      0 0 10px rgba(255,255,255,0.25),
+      0 0 20px rgba(255,255,255,0.12);
+  }
+  100%{
+    text-shadow:
+      0 0 14px rgba(255,255,255,0.45),
+      0 0 28px rgba(255,255,255,0.22);
+  }
+}
+
+/* ===== OPTIMIZACION MOVIL ===== */
+@media (max-width:600px){
+  .estrella-cayendo{
+    width:1.5px;
+    height:75px;
+    opacity:.65;
+  }
+
+  .capa-brillo::before{
+    width:240px;
+    height:240px;
+    filter:blur(60px);
+    opacity:.10;
+  }
+
+  .capa-brillo::after{
+    width:220px;
+    height:220px;
+    filter:blur(55px);
+    opacity:.10;
+  }
+
+  .destello-magico{
+    width:8px;
+    height:8px;
+  }
+
+  .reveal{
+    transform:translateY(22px);
+  }
+}
+
+/* ===== SI EL USUARIO PREFIERE MENOS MOVIMIENTO ===== */
+@media (prefers-reduced-motion: reduce){
+  body,
+  h1,
+  h2,
+  .estrella-cayendo,
+  .destello-magico,
+  .reveal{
+    animation:none !important;
+    transition:none !important;
+  }
+}
+}
+</style>
+</head>
+<div class="capa-estrellas" id="capaEstrellas"></div>
+<div class="capa-brillo"></div>
+<div class="capa-destellos" id="capaDestellos"></div>
+<body>
+
+<audio id="musica" preload="auto">
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<section class="portada">
+  <h1 class="glow">Mis 15 años</h1>
+
+  <img src="chica.png" class="chica" alt="Quinceañera">
+
+  <div class="play" onclick="toggleMusica()"></div>
+
+  <h1 class="glow">Kiara Nineth</h1>
+
+  <p>
+    Los sueños sí se cumplen, y hoy uno de los míos comienza hacerse realidad.
+    Con mucha ilusión quiero compartir contigo este momento tan especial.
+  </p>
+</section>
+
+<section class="seccion">
+  <h2 class="titulo-padres">Junto a mis queridos padres</h2>
+
+  <div class="padres">
+    <h1 class="nombre-padre">Alcides Peña</h1>
+    <h1 class="nombre-padre">Nineth Urgel</h1>
+  </div>
+
+  <p class="mensaje-padres">
+    Queremos que seas parte de este maravilloso momento
+  </p>
+</section>
+
+<section class="seccion">
+  <img src="fecha.PNG" class="imagen-deco" alt="Fecha">
+
+  <p style="font-family:Great Vibes; font-size:40px;" class="glow">Solo faltan</p>
+
+  <div class="contador-marco-wrap">
+    <img src="marco-contador.png" class="marco-contador" alt="Marco contador">
+
+    <div class="contador-superpuesto">
+      <div class="bloque-num">
+        <span id="dias">00</span>
+        <small>DÍAS</small>
+      </div>
+
+      <div class="separador">:</div>
+
+      <div class="bloque-num">
+        <span id="horas">00</span>
+        <small>HORAS</small>
+      </div>
+
+      <div class="separador">:</div>
+
+      <div class="bloque-num">
+        <span id="minutos">00</span>
+        <small>MINUTOS</small>
+      </div>
+
+      <div class="separador">:</div>
+
+      <div class="bloque-num">
+        <span id="segundos">00</span>
+        <small>SEGUNDOS</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="seccion">
+  <h2>Recepción social</h2>
+
+  <h1 class="glow" style="font-size:38px; margin-bottom:8px;">Cabaña Los Apontes</h1>
+
+  <p style="margin-top:0;">07:30 PM</p>
+
+  <a class="boton" href="https://maps.app.goo.gl/zQonw3wFSWFSjHtC6" target="_blank">
+    VER UBICACIÓN
+  </a>
+</section>
+
+<section class="seccion">
+  <img src="formal.PNG" class="dress-img" alt="Vestimenta formal">
+
+  <h2>Vestimenta Formal</h2>
+
+  <p>Reservando el color verde y plateado para la quinceañera</p>
+</section>
+
+<section class="seccion">
+  <h2>Cronograma</h2>
+
+  <img src="cronograma.png" class="crono" alt="Cronograma">
+</section>
+
+<section class="seccion">
+  <p style="max-width:800px;">
+    Hay momentos en la vida que son especiales por sí solos,
+    pero compartirlos con personas tan especiales como tú,
+    se convierten en recuerdos inolvidables.
+  </p>
+</section>
+
+<section class="seccion">
+  <h2>Confirma tu asistencia</h2>
+
+  <p class="texto-largo">
+    Queremos recordarte que es muy importante que nos confirmes tu asistencia
+  </p>
+
+  <a class="boton" href="https://wa.me/59169267509?text=Hola%20Kiarita,%20confirmo%20mi%20asistencia%20a%20tus%2015%20a%C3%B1os" target="_blank">
+    CONFIRMAR
+  </a>
+
+  <p class="pase">PASE PARA 1 PERSONA</p>
+</section>
+<script>
+/* ===== ESTRELLAS CAYENDO ===== */
+const capaEstrellas = document.getElementById("capaEstrellas");
+
+function crearEstrellaCayendo() {
+  const estrella = document.createElement("div");
+  estrella.className = "estrella-cayendo";
+
+  estrella.style.left = Math.random() * window.innerWidth + "px";
+  estrella.style.animationDuration = (2.8 + Math.random() * 2.8) + "s";
+  estrella.style.opacity = (0.45 + Math.random() * 0.45).toFixed(2);
+
+  capaEstrellas.appendChild(estrella);
+
+  setTimeout(() => {
+    estrella.remove();
+  }, 7000);
+}
+
+function lanzarEstrellas() {
+  const pocas = window.innerWidth < 700 ? 1 : 2;
+  for (let i = 0; i < pocas; i++) {
+    crearEstrellaCayendo();
+  }
+}
+
+setInterval(lanzarEstrellas, window.innerWidth < 700 ? 1800 : 1100);
+
+/* ===== DESTELLOS MAGICOS ===== */
+const capaDestellos = document.getElementById("capaDestellos");
+
+function crearDestellosMagicos() {
+  capaDestellos.innerHTML = "";
+
+  const total = window.innerWidth < 700 ? 10 : 18;
+
+  for (let i = 0; i < total; i++) {
+    const d = document.createElement("div");
+    d.className = "destello-magico";
+    d.style.left = Math.random() * 100 + "%";
+    d.style.top = Math.random() * 100 + "%";
+    d.style.animationDelay = (Math.random() * 4) + "s";
+    d.style.opacity = 0.25 + Math.random() * 0.6;
+    capaDestellos.appendChild(d);
+  }
+}
+
+crearDestellosMagicos();
+window.addEventListener("resize", crearDestellosMagicos);
+
+/* ===== REVEAL AL HACER SCROLL ===== */
+const elementosReveal = document.querySelectorAll(".portada, .seccion");
+elementosReveal.forEach(el => el.classList.add("reveal"));
+
+function revelarElementos() {
+  const trigger = window.innerHeight * 0.88;
+
+  document.querySelectorAll(".reveal").forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < trigger) {
+      el.classList.add("visible");
+    }
+  });
+}
+
+window.addEventListener("scroll", revelarElementos);
+window.addEventListener("load", revelarElementos);
+
+/* ===== BRILLO MAGICO AL HACER SCROLL ===== */
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+  const brillo = document.querySelector(".capa-brillo");
+  if (brillo) {
+    brillo.style.transform = `translateY(${scrollY * 0.03}px)`;
+  }
+});
+</script>
+<script>
+let play = false;
+const audio = document.getElementById("musica");
+
+function toggleMusica(){
+  if(!play){
+    audio.play();
+    play = true;
+    document.querySelector(".play").style.background = "rgba(200,255,214,0.95)";
+  }else{
+    audio.pause();
+    play = false;
+    document.querySelector(".play").style.background = "rgba(255,255,255,0.85)";
+  }
+}
+
+audio.addEventListener("ended", function(){
+  play = false;
+  document.querySelector(".play").style.background = "rgba(255,255,255,0.85)";
+});
+</script>
+
+<script>
+const fechaEvento = new Date("April 25, 2026 19:30:00").getTime();
+
+function actualizarContador() {
+  const ahora = new Date().getTime();
+  const distancia = fechaEvento - ahora;
+
+  if (distancia < 0) {
+    document.getElementById("dias").innerHTML = "00";
+    document.getElementById("horas").innerHTML = "00";
+    document.getElementById("minutos").innerHTML = "00";
+    document.getElementById("segundos").innerHTML = "00";
+    return;
+  }
+
+  const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+  const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+  const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+  document.getElementById("dias").innerHTML = String(dias).padStart(2, "0");
+  document.getElementById("horas").innerHTML = String(horas).padStart(2, "0");
+  document.getElementById("minutos").innerHTML = String(minutos).padStart(2, "0");
+  document.getElementById("segundos").innerHTML = String(segundos).padStart(2, "0");
+}
+
+setInterval(actualizarContador, 1000);
+actualizarContador();
+</script>
+
+</body>
+</html>
